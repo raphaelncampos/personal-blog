@@ -3,11 +3,15 @@
 from __future__ import unicode_literals
 
 AUTHOR = u'Raphael Campos'
-SITENAME = u'Raphael Campos dev blog'
-SITEURL = ''
+SITENAME = AUTHOR
+SITESUBTITLE = 'Software Engineer'
+#SITEURL = 'http://rcampos.rio.br/'
+SITELOGO = '//s.gravatar.com/avatar/9d77a848d13cdb876f260d82199f7b57?s=120'
+SITEDESCRIPTION = '%s\'s Thoughts and Writings' % AUTHOR
+PYGMENTS_STYLE = 'monokai'
 
+THEME = "/home/rcampos/git/pessoal/pelican-themes/Flex"
 PATH = 'content'
-
 TIMEZONE = 'America/Sao_Paulo'
 
 DEFAULT_LANG = u'en'
@@ -23,13 +27,40 @@ AUTHOR_FEED_RSS = None
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
          ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+         #('You can modify those links in your config file', '#'),
+         )
 
 # Social widget
-SOCIAL = (('twitter', 'http://twitter.com/raphaelncampos'),
-          ('github', 'https://github.com/raphaelncampos'),
+SOCIAL = (
           ('facebook', 'http://facebook.com/yamirhcp'),
+          ('instagram', 'http://instagram.com/raphaelncampos'),
+          ('linkedin', 'https://www.linkedin.com/in/raphael-campos-70b94733/'),
+          ('twitter', 'http://twitter.com/raphaelncampos'),
+          ('medium', 'http://medium.com/@raphaelncampos'),
+          ('telegram', 'https://telegram.me/raphaelncampos'),
+          ('gitlab', 'https://gitlab.com/raphaelncampos'),
+          ('bitbucket', 'https://bitbucket.org/raphaelncampos'),
+          ('github', 'https://github.com/raphaelncampos'),
+          ('google', 'https://google.com/+RaphaelCampos'),
           )
+
+
+MENUITEMS = (('Archives', '/archives.html'),
+             ('Categories', '/categories.html'),
+             ('Tags', '/tags.html'),)
+
+# mapping: language_code -> settings_overrides_dict
+I18N_SUBSITES = {
+    'br': {
+        'SITESUBTITLE': 'Engenheiro de Software',
+        'SITEDESCRIPTION': 'Visões e experiências do %s' % AUTHOR,
+        'MENUITEMS': {
+                'Arquivos': '/archives.html',
+                'Categorias': '/categories.html',
+                'Tags': '/tags.html',
+            }
+        }
+    }
 
 TWITTER_USERNAME = 'raphaelncampos'
 
@@ -38,7 +69,6 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-THEME = "/home/rcampos/git/pessoal/pelican-themes/Flex"
 
 DEFAULT_CATEGORY = 'General'
 USE_FOLDER_AS_CATEGORY = False
@@ -57,9 +87,4 @@ GITHUB_URL='https://github.com/raphaelncampos'
 PLUGIN_PATHS = ['/home/rcampos/git/pessoal/pelican-plugins']
 PLUGINS = ['i18n_subsites','pelican_unity_webgl',]
 
-# mapping: language_code -> settings_overrides_dict
-I18N_SUBSITES = {
-    'br': {
-        'SITENAME': 'Dev blog do Raphael Campos',
-        }
-    }
+
