@@ -14,7 +14,27 @@ THEME = "/home/rcampos/git/pessoal/pelican-themes/Flex"
 PATH = 'content'
 TIMEZONE = 'America/Sao_Paulo'
 
-DEFAULT_LANG = u'en'
+# Default theme language.
+#I18N_TEMPLATES_LANG = 'en'
+# Your language.
+DEFAULT_LANG = 'gb'
+OG_LOCALE = 'pt_BR'
+LOCALE = ('pt_BR.utf8', 'br')
+
+I18N_SUBSITES = {
+    'br': {
+        'SITESUBTITLE': 'Engenheiro de Software',
+        'SITEDESCRIPTION': 'Visões e experiências do %s' % AUTHOR,
+        'MENUITEMS': {
+                'Arquivos': '/archives.html',
+                'Categorias': '/categories.html',
+                'Tags': '/tags.html',
+            }
+        },
+        #'LOCALE' : 'pt_BR'
+    }
+
+#DEFAULT_LANG = u'en'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -50,17 +70,6 @@ MENUITEMS = (('Archives', '/archives.html'),
              ('Tags', '/tags.html'),)
 
 # mapping: language_code -> settings_overrides_dict
-I18N_SUBSITES = {
-    'br': {
-        'SITESUBTITLE': 'Engenheiro de Software',
-        'SITEDESCRIPTION': 'Visões e experiências do %s' % AUTHOR,
-        'MENUITEMS': {
-                'Arquivos': '/archives.html',
-                'Categorias': '/categories.html',
-                'Tags': '/tags.html',
-            }
-        }
-    }
 
 TWITTER_USERNAME = 'raphaelncampos'
 
@@ -86,5 +95,7 @@ GITHUB_URL='https://github.com/raphaelncampos'
 
 PLUGIN_PATHS = ['/home/rcampos/git/pessoal/pelican-plugins']
 PLUGINS = ['i18n_subsites','pelican_unity_webgl',]
-
-
+# Enable Jinja2 i18n extension used to parse translations.
+JINJA_ENVIRONMENT = {
+    'extensions' : ['jinja2.ext.i18n',]
+}

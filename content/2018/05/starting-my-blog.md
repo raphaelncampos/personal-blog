@@ -1,6 +1,6 @@
 Title: Starting my blog
 Slug: starting-my-blog
-Lang: en
+Lang: gb
 Category: Python
 Tags: python, pelican, wttd
 Author: Raphael Campos
