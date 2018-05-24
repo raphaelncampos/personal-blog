@@ -22,7 +22,8 @@ TIMEZONE = 'America/Sao_Paulo'
 #TEMPLATE_PAGES = {'index.html',}
 
 # Default theme language.
-#I18N_TEMPLATES_LANG = 'en'
+I18N_TEMPLATES_LANG = 'gb'
+#MAIN_LANG = 'gb'
 # Your language.
 DEFAULT_LANG = 'gb'
 OG_LOCALE = 'pt_BR'
@@ -115,6 +116,8 @@ def article_trans(article, lang, url):
     return url
 
 def page_trans(page, lang, url):
-    return getattr(page, lang)
+    if lang != I18N_TEMPLATES_LANG:
+        return "/%s/%s" % (lang,getattr(page, lang))
+    return "/%s" % getattr(page, lang)
 
 JINJA_FILTERS = {'article_trans':article_trans,'page_trans':page_trans}
