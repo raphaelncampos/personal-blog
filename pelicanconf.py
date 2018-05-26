@@ -8,38 +8,52 @@ SITESUBTITLE = 'Software Engineer'
 #SITEURL = 'http://rcampos.rio.br/'
 SITELOGO = '//s.gravatar.com/avatar/9d77a848d13cdb876f260d82199f7b57?s=120'
 SITEDESCRIPTION = '%s\'s Thoughts and Writings' % AUTHOR
+BROWSER_COLOR = '#333333'
 PYGMENTS_STYLE = 'monokai'
+
+COPYRIGHT_YEAR = 2018
 
 THEME = "/home/rcampos/git/pessoal/pelican-themes/Flex"
 PATH = 'content'
 TIMEZONE = 'America/Sao_Paulo'
 
 #ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{slug}/'
+#if {name}
+    #ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{name}/'
 #ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{slug}/index.html'
+#if {name}
+    #ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{name}/'index.html'
 
 #DIRECT_TEMPLATES = (('index', 'blog', 'tags', 'categories', 'archives', 'authors'))
 #PAGINATED_DIRECT_TEMPLATES = (('blog',))
 #TEMPLATE_PAGES = {'index.html',}
 
 # Default theme language.
-I18N_TEMPLATES_LANG = 'gb'
-#MAIN_LANG = 'gb'
+I18N_TEMPLATES_LANG = 'en'
+#MAIN_LANG = 'en'
 # Your language.
-DEFAULT_LANG = 'gb'
-OG_LOCALE = 'pt_BR'
-LOCALE = ('pt_BR.utf8', 'br')
+DEFAULT_LANG = 'en'
+LOCALE = 'en_US.utf8'
+OG_LOCALE = 'en_US.utf8'
+
+MENUITEMS = {
+    'Archives': '/archives.html',
+    'Categories': '/categories.html',
+    'Tags': '/tags.html',
+}
 
 I18N_SUBSITES = {
     'br': {
         'SITESUBTITLE': 'Engenheiro de Software',
         'SITEDESCRIPTION': 'Visões e experiências do %s' % AUTHOR,
+        'LOCALE' : 'pt_BR.utf8',
+        'OG_LOCALE' : 'pt_BR.utf8',
         'MENUITEMS': {
                 'Arquivos': '/archives.html',
                 'Categorias': '/categories.html',
                 'Tags': '/tags.html',
             }
         },
-        #'LOCALE' : 'pt_BR'
     }
 
 #DEFAULT_LANG = u'en'
@@ -103,7 +117,10 @@ DISQUS_SITENAME='raphaelncampos'
 GITHUB_URL='https://github.com/raphaelncampos'
 
 PLUGIN_PATHS = ['/home/rcampos/git/pessoal/pelican-plugins']
-PLUGINS = ['i18n_subsites','pelican_unity_webgl',]
+PLUGINS = ['i18n_subsites','pelican_unity_webgl', 
+           'liquid_tags.img', 'liquid_tags.video',
+           'liquid_tags.youtube', 'liquid_tags.vimeo',
+           'liquid_tags.include_code', 'liquid_tags.notebook']
 # Enable Jinja2 i18n extension used to parse translations.
 JINJA_ENVIRONMENT = {
     'extensions' : ['jinja2.ext.i18n',]
@@ -120,4 +137,11 @@ def page_trans(page, lang, url):
         return "/%s/%s" % (lang,getattr(page, lang))
     return "/%s" % getattr(page, lang)
 
-JINJA_FILTERS = {'article_trans':article_trans,'page_trans':page_trans}
+def get_flag(page, lang):
+    switcher = {
+        "en" : "gb"
+
+    }
+    return switcher.get(lang, lang)
+
+JINJA_FILTERS = {'article_trans':article_trans,'page_trans':page_trans, 'get_flag':get_flag}
