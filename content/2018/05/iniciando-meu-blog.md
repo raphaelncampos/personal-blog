@@ -1,5 +1,6 @@
 Title: Iniciando meu blog
 Slug: starting-my-blog
+Name: iniciando-meu-blog
 Lang: br
 Category: Python
 Tags: python, pelican, wttd
