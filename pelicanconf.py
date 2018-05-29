@@ -74,17 +74,39 @@ LINKS = (
         )
 
 # Social widget
+# SOCIAL = (
+#           ('facebook', 'http://facebook.com/yamirhcp', 1),
+#           ('telegram', 'https://telegram.me/raphaelncampos', 2),
+#           ('github', 'https://github.com/raphaelncampos', 3),
+#           ('linkedin', 'https://www.linkedin.com/in/raphael-campos-70b94733/', 2),
+#           )
+
+SC_PRIORITY = 2
+
 SOCIAL = (
-          ('facebook', 'http://facebook.com/yamirhcp'),
-          ('instagram', 'http://instagram.com/raphaelncampos'),
-          ('linkedin', 'https://www.linkedin.com/in/raphael-campos-70b94733/'),
-          ('twitter', 'http://twitter.com/raphaelncampos'),
-          ('medium', 'http://medium.com/@raphaelncampos'),
-          ('telegram', 'https://telegram.me/raphaelncampos'),
-          ('gitlab', 'https://gitlab.com/raphaelncampos'),
-          ('bitbucket', 'https://bitbucket.org/raphaelncampos'),
-          ('github', 'https://github.com/raphaelncampos'),
-          ('google', 'https://google.com/+RaphaelCampos'),
+          ('Facebook', 'facebook', 'http://facebook.com/yamirhcp', 1),
+          ('LinkedIn', 'linkedin', 'https://www.linkedin.com/in/raphael-campos-70b94733/', 1),
+          ('Telegram','telegram', 'https://telegram.me/raphaelncampos', 1),
+          ('Twitter','twitter', 'http://twitter.com/raphaelncampos', 2),
+          ('Github','github', 'https://github.com/raphaelncampos', 1),
+          ('BitBucket','bitbucket', 'https://bitbucket.org/raphaelncampos', 4),
+          ('Gitlab','gitlab', 'https://gitlab.com/raphaelncampos', 4),
+          ('Google Play Store','google-play', 'https://play.google.com/store/apps/dev?id=6876456275699695441', 7),
+          ('Apple App Store','app-store', '#', 7),
+          ('Skype: raphaelncampos','skype', '#', 3),
+          ('YouTube','youtube', 'https://www.youtube.com/user/raphaelncampos', 5),
+          ('Medium','medium', 'http://medium.com/@raphaelncampos', 4),
+          ('Stack Overflow','stack-overflow', 'https://stackoverflow.com/users/9043278/raphael-campos', 4),
+          ('DEV','devto', 'https://dev.to/raphaelncampos', 4),
+          ('Steam','steam', 'https://steamcommunity.com/id/raphaelncampos', 4),
+          ('Xbox Live','xbox', 'http://live.xbox.com/pt-BR/Profile?gamertag=raphaelncampos', 4),
+          ('Instagram','instagram', 'http://instagram.com/raphaelncampos', 4),
+          ('Google','google', 'https://google.com/+RaphaelCampos', 5),
+          ('Spotify','spotify', 'https://open.spotify.com/user/raphaelncampos', 6),
+          ('Reddit','reddit', 'https://www.reddit.com/user/raphaelncampos/', 7),
+          ('Twitch TV','twitch', 'https://www.twitch.tv/raphaelncampos', 7),
+          ('Meetup','meetup', 'https://www.meetup.com/pt-BR/members/249136674/', 7),
+          ('Discord: raphaelncampos#6695','discord', '#', 7),
           )
 
 
@@ -120,7 +142,8 @@ PLUGIN_PATHS = ['/home/rcampos/git/pessoal/pelican-plugins']
 PLUGINS = ['i18n_subsites','pelican_unity_webgl', 
            'liquid_tags.img', 'liquid_tags.video',
            'liquid_tags.youtube', 'liquid_tags.vimeo',
-           'liquid_tags.include_code', 'liquid_tags.notebook']
+           'liquid_tags.include_code']
+        #    'liquid_tags.include_code', 'liquid_tags.notebook']
 # Enable Jinja2 i18n extension used to parse translations.
 JINJA_ENVIRONMENT = {
     'extensions' : ['jinja2.ext.i18n',]
