@@ -13,7 +13,7 @@ PYGMENTS_STYLE = 'monokai'
 
 COPYRIGHT_YEAR = 2018
 
-THEME = "/home/rcampos/git/pessoal/pelican-themes/Flex"
+THEME = "themes/Flex"
 PATH = 'content'
 TIMEZONE = 'America/Sao_Paulo'
 
